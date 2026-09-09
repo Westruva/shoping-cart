@@ -1,16 +1,68 @@
-# React + Vite
+# MyStore Shopping Cart
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive React shopping cart for browsing tech essentials such as keyboards,
+headphones, and workspace accessories. Products are loaded from the Fake Store
+API, and the cart updates immediately as products are added or quantities change.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Home page with a storefront hero section and service highlights
+- Shop catalog with product images, categories, prices, loading, and error states
+- Add products to the cart, including quantity consolidation for duplicate items
+- Increase or decrease item quantities
+- Remove individual items or clear the entire cart
+- Live cart item count, subtotal, and order summary
+- Empty-cart state with a link back to the shop
+- Responsive layout built with Tailwind CSS utilities
+- React Router routes for home, shop, cart, not-found, and error pages
+- Shared cart state managed with React Context
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- Vite
+- React Router
+- Tailwind CSS 4
+- Fake Store API
 
-## Expanding the ESLint configuration
+## Routes
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Route   | Description                     |
+| ------- | ------------------------------- |
+| `/`     | Storefront home page            |
+| `/shop` | Product catalog                 |
+| `/cart` | Shopping cart and order summary |
+| `/*`    | Not-found page                  |
+
+## Getting Started
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Build the application for production:
+
+```bash
+npm run build
+```
+
+Run lint checks:
+
+```bash
+npm run lint
+```
+
+## Notes
+
+The shop depends on the public Fake Store API at
+`https://fakestoreapi.com/products`. An internet connection is required for the
+catalog to load. The checkout button currently displays a placeholder alert;
+there is no payment or order submission flow yet.
