@@ -60,9 +60,36 @@ Run lint checks:
 npm run lint
 ```
 
+## Deploy to Render
+
+This is a static Vite application, so it does not need a Node server in
+production. The root `render.yaml` blueprint configures Render to:
+
+- install dependencies with `npm ci`
+- build the app with `npm run build`
+- publish the generated `dist` directory
+- route all paths to `index.html` for React Router
+
+In Render, choose **New > Blueprint** and select this repository. The service
+will use the settings in `render.yaml` automatically. If you configure the
+site manually, use:
+
+| Setting           | Value                     |
+| ----------------- | ------------------------- |
+| Environment       | Static Site               |
+| Build command     | `npm ci && npm run build` |
+| Publish directory | `dist`                    |
+
+The catalog still requires an internet connection because it loads products
+from the Fake Store API at runtime.
+
 ## Notes
 
 The shop depends on the public Fake Store API at
 `https://fakestoreapi.com/products`. An internet connection is required for the
 catalog to load. The checkout button currently displays a placeholder alert;
 there is no payment or order submission flow yet.
+
+## Deployed at https://shoping-cart.waynesifiso71.workers.dev/shop
+
+![project screenshot](./public/shopping-cart.png)
